@@ -2,7 +2,7 @@
 
 #moving particles motion corrected/CTF corrected in cryosparc to relion
 
-#In this case, Extracted particles are in /data/cryosparc/v12/jon/P8/J500, Homogenous refined particles are /data/cryosparc/v12/jon/P8/J501, and Relion directory is /data/Jon/20200811RelionTest
+#In this case, Extracted particles are in /data/cryosparc/v12/jon/P8/J500, Homogenous refined (New) particles are /data/cryosparc/v12/jon/P8/J501, and Relion directory is /data/Jon/20200811RelionTest
 
 cd /data/Jon/20200811RelionTest
 #Important that the following J500/extract directories are made in the relion folder
