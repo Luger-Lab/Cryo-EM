@@ -1,0 +1,22 @@
+#All from Daniel Asarnow github page
+
+#moving particles motion corrected/CTF corrected in cryosparc to relion
+
+#In this case, Extracted particles are in /data/cryosparc/v12/jon/P8/J500, Homogenous refined particles are /data/cryosparc/v12/jon/P8/J501, and Relion directory is /data/Jon/20200811RelionTest
+
+cd /data/Jon/20200811RelionTest
+#Important that the following J500/extract directories are made in the relion folder
+mkdir J500/
+mkdir extract/
+cd J500/extract
+ln -s /data/cryosparc/v12/jon/P8/J500/extract/*.mrc -t .
+#relion does not read as .mrc only as .mrcs so need to change extension for all files
+rename .mrc .mrcs *.mrc
+
+#go back to relion folder
+cd ../..
+module load pyem/9.20 cuda/8.0 cryosparc/2.4
+
+#Use the particle.cs file from the final iteration for conversion
+csparc2star /data/cryosparc/v12/jon/P8/J501/cryosparc_P8_J501_005_particles.cs J501Particles.star
+sed -i 's/particles.mrc/particles.mrcs/g' J501Particles.star
