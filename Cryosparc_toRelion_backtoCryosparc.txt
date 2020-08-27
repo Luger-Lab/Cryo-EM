@@ -1,0 +1,25 @@
+#Moving files extracted in cryosparc, from relion back to cryosparc
+
+#Selected Particles in relion that want to be moved to cryosparc are in job187
+#Extracted particles in cryosparc are in P8/J777/extract
+
+#First read your job187/particles.star file
+
+head -50 job187/particles.star
+
+#Lots of information here, all you need to look at is the format of the linked doseweighted_particles. 
+#They should be in *.mrcs, we need to convert them to *.mrc
+
+#Make new directory in your user titled with reference to relion job
+mkdir Jon/job187particles
+cp job187/particles.star data/Jon/job187particles/Newjob187particles.star
+
+sed -i 's/particles.mrcs/particles.mrc/g' Newjob187particles.star
+
+#Now make new directory in the Jon/job187particles directory for cryosparc particles
+cd /data/Jon/job187particles
+mkdir J777/extract
+cd J777/extract
+ln -s /data/cryosparc/jon/P8/J777/extract/*.mrc -t .
+
+#Now can import into cryosparc like normal particle stack! 
