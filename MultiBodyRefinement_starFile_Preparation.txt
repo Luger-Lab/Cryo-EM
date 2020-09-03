@@ -1,0 +1,35 @@
+#Running Multi-body-refinement is not difficult, but making in the input mask star file is not simple.
+#Here I show how to make the input mask star file.
+#Otherwise, look at Sjors multibody-refinement tutorial for more details on running.
+
+#First need to do a 3DRefinement job of particles
+
+#Next, define the regions from refinement that you want to focus on. 
+#Save maps for nucleosome and binding factors in your relion folder, these are then in /data/Jon/RelionTest
+#Maps are saved in RelionTest folder as NucleosomeOnly.mrc and BindingFactorOnly.mrc
+#Important to save these maps in relion folder, as these are the reference maps to be used later
+#Make mask for the nucleosome in relion, this is now MaskCreate/job10/mask.mrc
+#Make mask for binding factor in relion, this is now MaskCreate/job11/mask.mrc
+
+#Now need to determine relative order of movement. Most likely nucleosome will be stable, and binding factor rotates
+#Also need to determine how much rotation will occur and by how many pixels (see Sjors tutorial for more info)
+#I chose nucleosome to be subtracted first, and that the binding factor will rotate 20 degrees by 5 pixels
+
+#Make .star file with all this information in a terminal (I like to use gedit)
+
+cd /data/Jon/RelionTest
+gedit
+
+#In text file type the following, changing the mask, order of subtraction, angle, pixels, and reference map appropriately
+
+data_
+loop_
+_rlnBodyMaskName
+_rlnBodyRotateRelativeTo
+_rlnBodySigmaAngles
+_rlnBodySigmaOffset
+_rlnBodyReferenceName
+MaskCreate/job10/mask.mrc 1 10 2 NucleosomeOnly.mrc
+MaskCreate/job11/mask.mrc 2 20 5 BindingFactorOnly.mrc
+
+#Now save this as a .star file in your Relion Folder. Now ready to run the refinement.
