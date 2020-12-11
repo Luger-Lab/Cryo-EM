@@ -1,6 +1,7 @@
 #Need to get fix_star_mrc_format.py and fix_star_mrc_format.py from Sam and place in your folder
 #Need to extract particles and run 3D refinement of those particles in cryosparc. That is P1/J1/particles_exported.cs here.
 #Need to run motion correction in relion, that is in job1/mircrographs here
+#To get the -pix_y value in the second line, you can simply look it up with imod header particles.star
 
 module load pyem
 
