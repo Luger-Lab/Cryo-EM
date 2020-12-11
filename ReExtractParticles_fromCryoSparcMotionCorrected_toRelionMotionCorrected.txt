@@ -1,0 +1,14 @@
+#Need to get fix_star_mrc_format.py and fix_star_mrc_format.py from Sam and place in your folder
+#Need to extract particles and run 3D refinement of those particles in cryosparc. That is P1/J1/particles_exported.cs here.
+#Need to run motion correction in relion, that is in job1/mircrographs here
+
+module load pyem
+
+#Order of operations: 1) Export Job from Cryosparc (using "Export Job" button in Cryosparc interface that shows up when you click on a job)
+#                     2) Run the csparc2star command, in the format as shown below
+#                     3) Convert your .mrc files to have "_" instead of "." (this is the MotionCorr2 convention), as well as any custom string conversions, using "fix_star_mrc_format.py"
+#                     4) Import the outputted .star file from "fix_star_mrc_format.py" to relion
+
+csparc2star.py --swapxy /data/cryosparc_projects_folder/jon/P1/exports/jobs/P1_refine/P1_J1/P1_J1_particles_exported.cs converted.star
+
+./fix_star_mrc_format.py -sf converted.star -of test.star -filename_convert_from "_patch_aligned_doseweighted" -filename_convert_to "" -path_convert_from ">J1/motioncorrected" -path_convert_to "MotionCorr/job1/micrographs" --csparc2star -pix_y 4092
