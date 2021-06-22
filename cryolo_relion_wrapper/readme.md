@@ -19,9 +19,10 @@ These instructions assume that you've already motion-corrected and CTF-corrected
        * This tab allows you to provide flags and values to the `janni_cryolo_relion_wrapper.py` function. The first box next to a custom parameter is the "label" of the parameter, and the value of that box will be passed to the `janni_cryolo_relion_wrapper.py` function as "`--[parameter label]`" (without the "\[ \]" characters). The second box is the value to assign to this parameter. For some parameters, such as defining the "mode of operation" (i.e., `denoise`, `train`, `predict`, etc.), the second box should be left empty.
    5. For `Param1`, put `denoise` in the first box and leave the second box empty.
    6. For `Param2`, put `nmic` in the second box and put the number of micrographs that you would like to use for your next manual picking job.
-   7. Click the `Running` tab.
-   8. Set `Number of threads:` to 1.
-   9. If using luger-imaging-4 or the Blanca GPU cluster, set `Submit to queue?` to `Yes`. Otherwise, set it to `No`.
+   7. For `Param3`, put `n_model` (for "noise model") in the first box and put the path to your janni `*.h5` model file in the second box (for example, `/data/LugerLab/sam/gmodel_janni_20190703.h5`)
+   8. Click the `Running` tab.
+   9. Set `Number of threads:` to 1.
+   10. If using luger-imaging-4 or the Blanca GPU cluster, set `Submit to queue?` to `Yes`. Otherwise, set it to `No`.
        * If you are not using a queuing system, then the `External` job will not currently set which GPU will be assigned to this task, which means that GPU 0 will likely be assigned to run this job. Please assign specific GPU ID's for simultaneously-running jobs accordingly (i.e., specifically request a different GPU(s) for those task(s)).
    11. Set your "queue settings" accordingly, if relevant.
    12. Click `Run!`.
