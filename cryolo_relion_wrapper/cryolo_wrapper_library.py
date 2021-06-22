@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+'''
+Original version written by Samuel Bowerman (6/22/2021)
+'''
 
 import os,sys,glob,datetime,itertools,subprocess,shutil
 import numpy as np
