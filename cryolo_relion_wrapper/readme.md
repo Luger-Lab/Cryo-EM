@@ -4,7 +4,7 @@ The files contained here are used for wrapping crYOLO functionality directly in 
 
 ## Installation
 
-Placing the wrapper scripts and linking to the crYOLO installation are managed by the `installer.py` script. That script takes two inputs (`-rpath`, the path to the RELION installation, and `-cpath`, the path to the crYOLO installation). It will then place the scripts in the `bin` folder of the RELION installation while replace the `CRYOLO_INSTALL_PATH` string of the wrapper call with the proper location of the crYOLO installation.
+Placing the wrapper scripts and linking to the crYOLO installation are managed by the `installer.py` script. That script takes two inputs (`-rpath`, the path to the RELION installation, and `-cpath`, the path to the crYOLO installation). It will then place the scripts in the `bin` folder of the RELION installation while replacing the `CRYOLO_INSTALL_PATH` string of the wrapper call with the proper location of the crYOLO installation.
 
 ## Using the wrapper
 
