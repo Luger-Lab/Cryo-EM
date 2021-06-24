@@ -20,5 +20,6 @@ base_wrapper.close()
 install_wrapper.close()
 
 shutil.copyfile("cryolo_wrapper_library.py",os.path.join(args.rpath,"bin/cryolo_wrapper_library.py"))
+os.system("chmod ugo+rx "+os.path.join(args.rpath("bin/janni_cryolo_relion_wrapper.py"))
 
 print("Installation is complete!")
