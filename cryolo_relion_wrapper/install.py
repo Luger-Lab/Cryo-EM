@@ -10,7 +10,7 @@ args = parser.parse_args()
 
 base_wrapper    = open("janni_cryolo_relion_wrapper.py",'r')
 install_wrapper = open(os.path.join(args.rpath,"bin/janni_cryolo_relion_wrapper.py"),'w')
-base_wrapper_lines = base_wrapper.lines()
+base_wrapper_lines = base_wrapper.readlines()
 
 for LINE in base_wrapper_lines:
   if "CRYOLO_INSTALL_PATH" in LINE:
@@ -20,6 +20,6 @@ base_wrapper.close()
 install_wrapper.close()
 
 shutil.copyfile("cryolo_wrapper_library.py",os.path.join(args.rpath,"bin/cryolo_wrapper_library.py"))
-os.system("chmod ugo+rx "+os.path.join(args.rpath("bin/janni_cryolo_relion_wrapper.py"))
+os.system("chmod ugo+rx "+os.path.join(args.rpath,"bin/janni_cryolo_relion_wrapper.py"))
 
 print("Installation is complete!")
