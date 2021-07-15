@@ -6,7 +6,9 @@ If you use this wrapper in your research, please note our assistance in the "Ack
 
 ## Installation
 
-Placing the wrapper scripts and linking to the crYOLO installation are managed by the `installer.py` script. That script takes two inputs (`-rpath`, the path to the RELION installation, and `-cpath`, the path to the crYOLO installation). It will then place the scripts in the `bin` folder of the RELION installation while replacing the `CRYOLO_INSTALL_PATH` string of the wrapper call with the proper location of the crYOLO installation.
+You should download/store the scripts from the wrapper's github repository in a separate folder from both your RELION and crYOLO installations. Then, placing the wrapper scripts in the RELION folder and linking to the crYOLO installation are dynamically managed by the `installer.py` script (which should be run from within the same folder as the `janni_cryolo_relion_wrapper.py` and `cryolo_wrapper_library.py` files). That script takes two inputs (`-rpath`, the path to the RELION installation, and `-cpath`, the path to the crYOLO installation). It will then place the scripts in the `bin` folder of the RELION installation while replacing the `CRYOLO_INSTALL_PATH` string of the wrapper call with the proper location of the crYOLO installation. An example for how the installation call should look is as follows:
+
+   `python install.py -rpath /home/luger-software/programs/relion/build/ -cpath /home/luger-software/programs/cryolo/anaconda3/envs/cryolo`
 
 ## Using the wrapper
 
