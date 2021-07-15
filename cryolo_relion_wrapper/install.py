@@ -19,6 +19,9 @@ for LINE in base_wrapper_lines:
 base_wrapper.close()
 install_wrapper.close()
 
+if os.path.isfile(os.path.join(args.rpath,"bin/cryolo_wrapper_library.py")):
+  print("Removing previous installation from "+os.path.join(args.rpath,"bin/cryolo_wrapper_library.py"))
+  os.remove(os.path.join(args.rpath,"bin/cryolo_wrapper_library.py"))
 shutil.copyfile("cryolo_wrapper_library.py",os.path.join(args.rpath,"bin/cryolo_wrapper_library.py"))
 os.system("chmod ugo+rx "+os.path.join(args.rpath,"bin/janni_cryolo_relion_wrapper.py"))
 
