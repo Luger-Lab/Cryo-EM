@@ -2,21 +2,38 @@
 
 #moving particles motion corrected/CTF corrected in cryosparc to relion
 
-#In this case, Extracted particles are in /data/cryosparc/v12/jon/P8/J500, Homogenous refined (New) particles are /data/cryosparc/v12/jon/P8/J501, and Relion directory is /data/Jon/20200811RelionTest
+#In this case, motion correction is /data/cryosparc/v12/jon/P8/J2 Extracted particles are in /data/cryosparc/v12/jon/P8/J4, Homogenous refined (New) particles are /data/cryosparc/v12/jon/P8/J6, and Relion directory is /data/Jon/20200811RelionTest
 
+#first need to link motioncorrected images to the relion directory
 cd /data/Jon/20200811RelionTest
-#Important that the following J500/extract directories are made in the relion folder
-mkdir J500/
-mkdir extract/
-cd J500/extract
-ln -s /data/cryosparc/v12/jon/P8/J500/extract/*.mrc -t .
+#Important that the following J2/motioncorrected directories are made in the relion directory
+mkdir J2/
+cd J2
+mkdir motioncorrected/
+cd motioncorrected
+ln -s /data/cryosparc/v12/jon/P8/J2/motioncorrected/*.mrc -t .
 #relion does not read as .mrc only as .mrcs so need to change extension for all files
 rename .mrc .mrcs *.mrc
 
+#Now need to link the extracted particles to the relion directory
+cd /data/Jon/20200811RelionTest
+#Important that the following J4/extract directories are made in the relion directory
+mkdir J4/
+cd J4
+mkdir extract
+cd extract
+ln -s /data/cryosparc/v12/jon/P8/J4/extract/*.mrc -t .
+#relion does not read as .mrc only as .mrcs so need to change extension for all files
+rename .mrc .mrcs *.mrc
+
+
 #go back to relion folder
 cd ../..
-module load pyem/9.20 cuda/8.0 cryosparc/2.4
+module load pyem
 
-#Use the particle.cs file from the final iteration for conversion
-csparc2star /data/cryosparc/v12/jon/P8/J501/cryosparc_P8_J501_005_particles.cs J501Particles.star
-sed -i 's/particles.mrc/particles.mrcs/g' J501Particles.star
+#Use the particle.cs and passthrough.cs files from the final iteration for conversion
+csparc2star /data/cryosparc/v12/jon/P8/J6/cryosparc_P8_J6_005_particles.cs /data/cryosparc/v12/jon/P8/J6/P8_J6_passthrough_particles.cs J6Particles.star
+#Now just need to replace all mrc extensions to mrcs in the final star file
+sed -i 's/particles.mrc/particles.mrcs/g' J6Particles.star
+sed -i 's/dosweighted.mrc/dosweighted.mrcs/g' J6Particles.star
+
