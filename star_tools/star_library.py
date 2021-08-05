@@ -2,6 +2,8 @@
 
 '''
     This library was designed to help parse STAR files in to custom scripts.
+    
+    Outputs generated from STAR files created with this packaged should be carefully inspected, and the code and results are provided WITHOUT WARRANTY.
 
     Written by Samuel Bowerman (University of Colorado).
 
