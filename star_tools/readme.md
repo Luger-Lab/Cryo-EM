@@ -9,7 +9,7 @@ These tasks are stored under the `sb_star_tools` module.
 
 ## Determining Classification Convergence
 
-This function allows you to diagnose the convergence of your 2-D and 3-D classifications in RELION. The basic usage is listed below:
+This [`class_sizes.py`](https://github.com/Luger-Lab/Cryo-EM/blob/master/star_tools/class_sizes.py) allows you to diagnose the convergence of your 2-D and 3-D classifications in RELION. The basic usage is listed below:
 
     usage: class_sizes.py [-h] [-f F] [--all] [-o O] [--2d] [--num]
 
