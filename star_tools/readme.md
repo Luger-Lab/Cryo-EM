@@ -9,7 +9,26 @@ These tasks are stored under the `sb_star_tools` module.
 
 ## Determining Classification Convergence
 
-This function allows you to diagnose the convergence of your 2-D and 3-D classifications in RELION.
+This function allows you to diagnose the convergence of your 2-D and 3-D classifications in RELION. The basic usage is listed below:
+
+    usage: class_sizes.py [-h] [-f F] [--all] [-o O] [--2d] [--num]
+
+    optional arguments:
+    -h, --help  show this help message and exit
+    -f F        Single file for extracting class sizes
+    --all       Plot class sizes vs iteration for all current "model.star"
+                files. Overrides the "-f" option.
+    -o O        Prefix for output files
+    --2d        Process 2D classes, instead of the default of 3D classes
+    --num       Print total particle number instead of class % of total
+                particles
+
+Here is a (slightly) more elaborate description of the different flags:
+  * `-f` : This option is only used if you want to look at the class breakdown at a single iteration (typically the final one, but doesn't have to be). It will produce a bar plot that shows you the relative distributions of particles across all your classes at the inputted stage.
+  * `--all` : Scan across all iterations contained within the folder. This is useful for determining convergence since it will map the iteration vs class populations breakdown, allowing you to see if your plot has "plateaued" or is still working to separate particles into the classes.
+  * `-o` : Simply put, your output files will all have this pattern in them.
+  * `--2d` : Use this flag if you are diagnosing 2D classifications, rather than 3D ones.
+  * `--num` : By default, the program will display the class sizes as fractions of the total population (this is also faster). If you are feeling patient and industrious, use this option to have the program output the raw particle count.
 
 ## Converting Between Relion Versions
 
