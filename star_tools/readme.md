@@ -5,6 +5,7 @@ This folder contains programs that I (Sam) have found useful for diagnosing RELI
  1. [Determing if your classification process has converged](#determining-classification-convergence)
  2. [Back-converting Relion 3.1 STAR files for Relion 3.0 compatibility](#converting-between-relion-versions)
 
+These tasks are stored under the `sb_star_tools` module.
 
 ## Determining Classification Convergence
 
