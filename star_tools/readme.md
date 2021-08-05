@@ -2,8 +2,8 @@
 
 This folder contains programs that I (Sam) have found useful for diagnosing RELION performance or for swapping between versions of relion. So far, there are two programs to consider:
 
- 1. [class_sizes.py](#class_sizes-py)
- 2. [relion31_to_relion30.py](#relion31_to_relion30-py)
+ 1. [class_sizes.py](#class_sizes.py)
+ 2. [relion31_to_relion30.py](#relion31_to_relion30.py)
 
 
 ## class_sizes.py
